@@ -42,14 +42,14 @@ if not success then
 end
 
 -- Constants
-local rarePets = {"Red Fox", "Raccoon", "Dragonfly", "Queen Bee", "T-Rex", "Fennec Fox", "Butterfly", "Disco Bee", "Mimic Octopus", "Kitsune", "Spinosaurus"}
-local mutationKeywords = {"Ascended", "Inverted", "Rainbow", "Radiant", "IronSkin", "Golden", "Tiny", "Frozen", "Windy", "Mega", "Shiny", "Shocked"}
+local rarePets = {"Red Fox", "Raccoon", "Dragonfly", "Queen Bee", "T-Rex", "Fennec Fox", "Butterfly", "Disco Bee", "Mimic Octopus", "Kitsune", "Spinosaurus", "Corrupted Kitsune"}
+local mutationKeywords = {"Ascended", "Inverted", "Rainbow", "Radiant", "IronSkin", "Golden", "Tiny", "Frozen", "Windy", "Mega", "Shiny", "Shocked", "Corrupted"}
 
 -- Emoji map
 local petEmojis = {
-    ["Fennec Fox"] = "🦊", ["Butterfly"] = "🦋", ["Dragonfly"] = "🐉", ["Red Fox"] = "🦊",
+    ["Fennec Fox"] = "🐺", ["Butterfly"] = "🦋", ["Dragonfly"] = "🐉", ["Red Fox"] = "🦊",
     ["Raccoon"] = "🦝", ["Queen Bee"] = "🐝", ["T-Rex"] = "🦖", ["Disco Bee"] = "🪩",
-    ["Mimic Octopus"] = "🐙", ["Kitsune"] = "🦊", ["Spinosaurus"] = "🦖"
+    ["Mimic Octopus"] = "🐙", ["Kitsune"] = "🌸", ["Spinosaurus"] = "🦖", ["Corrupted Kitsune"] = "👾"
 }
 
 local function getPetEmoji(petName, weight)
