@@ -166,7 +166,7 @@ desiredMutationsLabel.TextXAlignment = Enum.TextXAlignment.Left
 local mutationDropdownBtn = Instance.new("TextButton", page)
 mutationDropdownBtn.Size = UDim2.new(0.55, -10, 0, 20)
 mutationDropdownBtn.Position = UDim2.new(0.45, 0, 0, 35)
-mutationDropdownBtn.Text = selectedMutation
+mutationDropdownBtn.Text = "Mega"
 mutationDropdownBtn.TextColor3 = Color3.fromRGB(0, 0, 0)
 mutationDropdownBtn.Font = Enum.Font.FredokaOne
 mutationDropdownBtn.TextSize = 10
@@ -179,7 +179,7 @@ local mutations = {
     "Mega", "Radiant", "Rainbow", "Shiny", "Shocked", "Tiny", "Windy"
 }
 
-local selectedMutation = math.random() > 0.5 and "Mega" or "Rainbow"
+local selectedMutation = "Mega"
 
 -- Mutation Dropdown GUI
 local function createMutationDropdown()
