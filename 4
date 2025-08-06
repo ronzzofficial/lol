@@ -173,6 +173,16 @@ local selectedMutation = nil
 local function createMutationDropdown()
     if main:FindFirstChild("MutationDropdown") then return end
     
+    -- Create dark overlay for main GUI
+    local darkOverlay = Instance.new("Frame", main)
+    darkOverlay.Name = "DarkOverlay"
+    darkOverlay.Size = UDim2.new(1, 0, 1, 0)
+    darkOverlay.Position = UDim2.new(0, 0, 0, 0)
+    darkOverlay.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+    darkOverlay.BackgroundTransparency = 0.8
+    darkOverlay.ZIndex = 50
+    Instance.new("UICorner", darkOverlay).CornerRadius = UDim.new(0, 8)
+    
     local dropdown = Instance.new("Frame", main)
     dropdown.Name = "MutationDropdown"
     dropdown.Size = UDim2.new(0, 150, 0, 200)
@@ -208,7 +218,12 @@ local function createMutationDropdown()
     closeDropdown.Font = Enum.Font.FredokaOne
     closeDropdown.TextSize = 14
     Instance.new("UICorner", closeDropdown)
-    closeDropdown.MouseButton1Click:Connect(function() dropdown:Destroy() end)
+    closeDropdown.MouseButton1Click:Connect(function() 
+        dropdown:Destroy()
+        if main:FindFirstChild("DarkOverlay") then
+            main.DarkOverlay:Destroy()
+        end
+    end)
     
     -- Search Input
     local searchFrame = Instance.new("Frame", dropdown)
@@ -263,6 +278,9 @@ local function createMutationDropdown()
                     selectedMutation = mutation
                     mutationDropdownBtn.Text = mutation
                     dropdown:Destroy()
+                    if main:FindFirstChild("DarkOverlay") then
+                        main.DarkOverlay:Destroy()
+                    end
                 end)
                 
                 mutationBtn.MouseEnter:Connect(function()
@@ -343,24 +361,18 @@ Instance.new("UICorner", rerollBtn)
 
 rerollBtn.MouseButton1Click:Connect(function()
     if selectedMutation then
-        statusLabel.Text = "Rerolling for: " .. selectedMutation
         -- Here you would add the actual mutation reroll logic
         -- For now, just show a success message
         task.wait(1)
-        statusLabel.Text = "Mutation rerolled successfully!"
-        task.wait(2)
-        statusLabel.Text = "Ready to reroll mutations"
     else
-        statusLabel.Text = "Please select a desired mutation first!"
-        task.wait(2)
-        statusLabel.Text = "Ready to reroll mutations"
+        -- Handle case when no mutation is selected
     end
 end)
 
 -- Credit Text
 local creditLabel = Instance.new("TextLabel", page)
 creditLabel.Size = UDim2.new(1, -20, 0, 16)
-creditLabel.Position = UDim2.new(0, 10, 0, 135)
+creditLabel.Position = UDim2.new(0, 10, 0, 105)
 creditLabel.Text = "discord.gg/pGbFQz3jcz"
 creditLabel.TextColor3 = Color3.fromRGB(0, 0, 0)
 creditLabel.Font = Enum.Font.FredokaOne
