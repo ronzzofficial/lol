@@ -81,8 +81,8 @@ infoBtn.MouseButton1Click:Connect(function()
 
     local modal = Instance.new("Frame", gui)
     modal.Name = "InfoModal"
-    modal.Size = UDim2.new(0, 280, 0, 170)
-    modal.Position = UDim2.new(0.5, -140, 0.5, -85)
+    modal.Size = UDim2.new(0, 280, 0, 195)
+    modal.Position = UDim2.new(0.5, -140, 0.5, -97.5)
     modal.BackgroundColor3 = Color3.fromRGB(94, 62, 35)
     Instance.new("UICorner", modal).CornerRadius = UDim.new(0, 8)
 
@@ -166,7 +166,7 @@ desiredMutationsLabel.TextXAlignment = Enum.TextXAlignment.Left
 local mutationDropdownBtn = Instance.new("TextButton", page)
 mutationDropdownBtn.Size = UDim2.new(0.55, -10, 0, 20)
 mutationDropdownBtn.Position = UDim2.new(0.45, 0, 0, 35)
-mutationDropdownBtn.Text = "Select desired mutations"
+mutationDropdownBtn.Text = selectedMutation
 mutationDropdownBtn.TextColor3 = Color3.fromRGB(0, 0, 0)
 mutationDropdownBtn.Font = Enum.Font.FredokaOne
 mutationDropdownBtn.TextSize = 10
@@ -179,7 +179,7 @@ local mutations = {
     "Mega", "Radiant", "Rainbow", "Shiny", "Shocked", "Tiny", "Windy"
 }
 
-local selectedMutation = nil
+local selectedMutation = math.random() > 0.5 and "Mega" or "Rainbow"
 
 -- Mutation Dropdown GUI
 local function createMutationDropdown()
