@@ -176,7 +176,7 @@ local function createMutationDropdown()
     local dropdown = Instance.new("Frame", main)
     dropdown.Name = "MutationDropdown"
     dropdown.Size = UDim2.new(0, 150, 0, 200)
-    dropdown.Position = UDim2.new(0, 0, 1, 5)
+    dropdown.Position = UDim2.new(0, 0, 0, 0)
     dropdown.BackgroundColor3 = Color3.fromRGB(94, 62, 35)
     dropdown.ZIndex = 100
     Instance.new("UICorner", dropdown).CornerRadius = UDim.new(0, 8)
@@ -192,7 +192,7 @@ local function createMutationDropdown()
     dropdownTitle.Text = "Desired Mutation"
     dropdownTitle.TextColor3 = Color3.fromRGB(255, 255, 255)
     dropdownTitle.Font = Enum.Font.FredokaOne
-    dropdownTitle.TextSize = 16
+    dropdownTitle.TextSize = 12
     dropdownTitle.BackgroundTransparency = 1
     dropdownTitle.TextXAlignment = Enum.TextXAlignment.Left
     local titleStroke = Instance.new("UIStroke", dropdownTitle)
