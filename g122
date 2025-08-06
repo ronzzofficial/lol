@@ -338,14 +338,14 @@ autoRerollLabel.TextXAlignment = Enum.TextXAlignment.Left
 local autoRerollToggle = Instance.new("TextButton", page)
 autoRerollToggle.Size = UDim2.new(0.55, -10, 0, 20)
 autoRerollToggle.Position = UDim2.new(0.45, 0, 0, 65)
-autoRerollToggle.Text = "OFF"
-autoRerollToggle.TextColor3 = Color3.fromRGB(255, 255, 255)
+autoRerollToggle.Text = "ON"
+autoRerollToggle.TextColor3 = Color3.fromRGB(0, 0, 0)
 autoRerollToggle.Font = Enum.Font.FredokaOne
 autoRerollToggle.TextSize = 10
-autoRerollToggle.BackgroundColor3 = Color3.fromRGB(255, 60, 60)
+autoRerollToggle.BackgroundColor3 = Color3.fromRGB(85, 255, 105)
 Instance.new("UICorner", autoRerollToggle).CornerRadius = UDim.new(0, 4)
 
-local autoRerollEnabled = false
+local autoRerollEnabled = true
 
 autoRerollToggle.MouseButton1Click:Connect(function()
     autoRerollEnabled = not autoRerollEnabled
