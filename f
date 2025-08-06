@@ -14,8 +14,8 @@ gui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
 -- Main Frame
 local main = Instance.new("Frame", gui)
-main.Size = UDim2.new(0, 280, 0, 160)
-main.Position = UDim2.new(0.5, -140, 0.5, -80)
+main.Size = UDim2.new(0, 280, 0, 170)
+main.Position = UDim2.new(0.5, -140, 0.5, -85)
 main.BackgroundColor3 = Color3.fromRGB(94, 62, 35)
 main.Active = true
 main.Draggable = true
