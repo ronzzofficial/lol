@@ -14,8 +14,8 @@ gui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
 -- Main Frame
 local main = Instance.new("Frame", gui)
-main.Size = UDim2.new(0, 280, 0, 170)
-main.Position = UDim2.new(0.5, -140, 0.5, -85)
+main.Size = UDim2.new(0, 280, 0, 195)
+main.Position = UDim2.new(0.5, -140, 0.5, -97.5)
 main.BackgroundColor3 = Color3.fromRGB(94, 62, 35)
 main.Active = true
 main.Draggable = true
@@ -134,15 +134,27 @@ end)
 
 -- Page Content Area
 local page = Instance.new("Frame", main)
-page.Size = UDim2.new(1, -20, 0, 125)
+page.Size = UDim2.new(1, -20, 0, 150)
 page.Position = UDim2.new(0, 10, 0, 35)
 page.BackgroundColor3 = Color3.fromRGB(75, 50, 25)
 Instance.new("UICorner", page).CornerRadius = UDim.new(0, 6)
 
+-- Message Label
+local messageLabel = Instance.new("TextLabel", page)
+messageLabel.Size = UDim2.new(1, -20, 0, 20)
+messageLabel.Position = UDim2.new(0, 10, 0, 10)
+messageLabel.Text = ""
+messageLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+messageLabel.Font = Enum.Font.FredokaOne
+messageLabel.TextSize = 11
+messageLabel.BackgroundTransparency = 1
+messageLabel.TextXAlignment = Enum.TextXAlignment.Center
+messageLabel.Visible = false
+
 -- Desired Mutations Label
 local desiredMutationsLabel = Instance.new("TextLabel", page)
 desiredMutationsLabel.Size = UDim2.new(0.4, -10, 0, 20)
-desiredMutationsLabel.Position = UDim2.new(0, 10, 0, 10)
+desiredMutationsLabel.Position = UDim2.new(0, 10, 0, 35)
 desiredMutationsLabel.Text = "Desired Mutations"
 desiredMutationsLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
 desiredMutationsLabel.Font = Enum.Font.FredokaOne
@@ -153,7 +165,7 @@ desiredMutationsLabel.TextXAlignment = Enum.TextXAlignment.Left
 -- Mutation Dropdown Button
 local mutationDropdownBtn = Instance.new("TextButton", page)
 mutationDropdownBtn.Size = UDim2.new(0.55, -10, 0, 20)
-mutationDropdownBtn.Position = UDim2.new(0.45, 0, 0, 10)
+mutationDropdownBtn.Position = UDim2.new(0.45, 0, 0, 35)
 mutationDropdownBtn.Text = "Select desired mutations"
 mutationDropdownBtn.TextColor3 = Color3.fromRGB(0, 0, 0)
 mutationDropdownBtn.Font = Enum.Font.FredokaOne
@@ -199,7 +211,7 @@ local function createMutationDropdown()
     local dropdownTitle = Instance.new("TextLabel", dropdownHeader)
     dropdownTitle.Size = UDim2.new(1, -30, 1, 0)
     dropdownTitle.Position = UDim2.new(0, 10, 0, 0)
-    dropdownTitle.Text = "Desired Mutation"
+    dropdownTitle.Text = "DESIRED MUTATION"
     dropdownTitle.TextColor3 = Color3.fromRGB(255, 255, 255)
     dropdownTitle.Font = Enum.Font.FredokaOne
     dropdownTitle.TextSize = 12
@@ -314,7 +326,7 @@ mutationDropdownBtn.MouseButton1Click:Connect(createMutationDropdown)
 -- Auto Reroll Mutation Label
 local autoRerollLabel = Instance.new("TextLabel", page)
 autoRerollLabel.Size = UDim2.new(0.4, -10, 0, 20)
-autoRerollLabel.Position = UDim2.new(0, 10, 0, 40)
+autoRerollLabel.Position = UDim2.new(0, 10, 0, 65)
 autoRerollLabel.Text = "Auto Reroll Mutation"
 autoRerollLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
 autoRerollLabel.Font = Enum.Font.FredokaOne
@@ -325,7 +337,7 @@ autoRerollLabel.TextXAlignment = Enum.TextXAlignment.Left
 -- Auto Reroll Toggle Button
 local autoRerollToggle = Instance.new("TextButton", page)
 autoRerollToggle.Size = UDim2.new(0.55, -10, 0, 20)
-autoRerollToggle.Position = UDim2.new(0.45, 0, 0, 40)
+autoRerollToggle.Position = UDim2.new(0.45, 0, 0, 65)
 autoRerollToggle.Text = "OFF"
 autoRerollToggle.TextColor3 = Color3.fromRGB(255, 255, 255)
 autoRerollToggle.Font = Enum.Font.FredokaOne
@@ -352,7 +364,7 @@ end)
 local rerollBtn = Instance.new("TextButton", page)
 rerollBtn.Text = "REROLL MUTATION"
 rerollBtn.Size = UDim2.new(1, -20, 0, 28)
-rerollBtn.Position = UDim2.new(0, 10, 0, 70)
+rerollBtn.Position = UDim2.new(0, 10, 0, 95)
 rerollBtn.BackgroundColor3 = Color3.fromRGB(85, 255, 105)
 rerollBtn.TextColor3 = Color3.fromRGB(0, 0, 0)
 rerollBtn.Font = Enum.Font.FredokaOne
@@ -361,18 +373,28 @@ Instance.new("UICorner", rerollBtn)
 
 rerollBtn.MouseButton1Click:Connect(function()
     if selectedMutation then
+        messageLabel.Text = "Rerolling for: " .. selectedMutation
+        messageLabel.TextColor3 = Color3.fromRGB(0, 255, 100)
+        messageLabel.Visible = true
         -- Here you would add the actual mutation reroll logic
-        -- For now, just show a success message
         task.wait(1)
+        messageLabel.Text = "Mutation rerolled successfully!"
+        messageLabel.TextColor3 = Color3.fromRGB(0, 255, 100)
+        task.wait(2)
+        messageLabel.Visible = false
     else
-        -- Handle case when no mutation is selected
+        messageLabel.Text = "Please select a desired mutation first!"
+        messageLabel.TextColor3 = Color3.fromRGB(255, 60, 60)
+        messageLabel.Visible = true
+        task.wait(2)
+        messageLabel.Visible = false
     end
 end)
 
 -- Credit Text
 local creditLabel = Instance.new("TextLabel", page)
 creditLabel.Size = UDim2.new(1, -20, 0, 16)
-creditLabel.Position = UDim2.new(0, 10, 0, 105)
+creditLabel.Position = UDim2.new(0, 10, 0, 130)
 creditLabel.Text = "discord.gg/pGbFQz3jcz"
 creditLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
 creditLabel.Font = Enum.Font.FredokaOne
