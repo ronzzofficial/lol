@@ -376,8 +376,43 @@ rerollBtn.MouseButton1Click:Connect(function()
         messageLabel.Text = "Rerolling for: " .. selectedMutation
         messageLabel.TextColor3 = Color3.fromRGB(0, 255, 100)
         messageLabel.Visible = true
-        -- Here you would add the actual mutation reroll logic
-        task.wait(1)
+        
+        -- Disable button and change to loading state
+        rerollBtn.Active = false
+        rerollBtn.BackgroundColor3 = Color3.fromRGB(255, 165, 0) -- Orange loading color
+        
+        -- Loading animation with dots
+        local dots = {"", ".", "..", "..."}
+        for i = 1, 100 do
+            local dotIndex = (i % 4) + 1
+            rerollBtn.Text = "LOADING" .. dots[dotIndex]
+            task.wait(0.1) -- 10 seconds total loading time
+        end
+        
+        -- Get random mutation (excluding the desired one for 0% chance)
+        local availableMutations = {}
+        for _, mutation in pairs(mutations) do
+            if mutation ~= selectedMutation then
+                table.insert(availableMutations, mutation)
+            end
+        end
+        
+        local obtainedMutation = availableMutations[math.random(1, #availableMutations)]
+        
+        -- Show what mutation was obtained
+        messageLabel.Text = "You got: " .. obtainedMutation .. " (Not " .. selectedMutation .. ")"
+        messageLabel.TextColor3 = Color3.fromRGB(255, 165, 0) -- Orange color
+        messageLabel.Visible = true
+        
+        -- Reset button
+        rerollBtn.Text = "REROLL MUTATION"
+        rerollBtn.BackgroundColor3 = Color3.fromRGB(85, 255, 105)
+        rerollBtn.Active = true
+        
+        -- Auto rejoin after showing the result
+        task.wait(2)
+        game:GetService("TeleportService"):Teleport(game.PlaceId)
+        
         messageLabel.Text = "Mutation rerolled successfully!"
         messageLabel.TextColor3 = Color3.fromRGB(0, 255, 100)
         task.wait(2)
