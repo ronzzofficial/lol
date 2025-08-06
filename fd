@@ -185,8 +185,8 @@ local function createMutationDropdown()
     
     local dropdown = Instance.new("Frame", main)
     dropdown.Name = "MutationDropdown"
-    dropdown.Size = UDim2.new(0, 150, 0, 200)
-    dropdown.Position = UDim2.new(0.5, -75, 0.5, -100)
+    dropdown.Size = UDim2.new(0, 180, 0, 180)
+    dropdown.Position = UDim2.new(0.5, -90, 0.5, -90)
     dropdown.BackgroundColor3 = Color3.fromRGB(94, 62, 35)
     dropdown.ZIndex = 100
     Instance.new("UICorner", dropdown).CornerRadius = UDim.new(0, 8)
