@@ -171,39 +171,42 @@ local selectedMutation = nil
 
 -- Mutation Dropdown GUI
 local function createMutationDropdown()
-    if gui:FindFirstChild("MutationDropdown") then return end
+    if main:FindFirstChild("MutationDropdown") then return end
     
-    local dropdown = Instance.new("Frame", gui)
+    local dropdown = Instance.new("Frame", main)
     dropdown.Name = "MutationDropdown"
     dropdown.Size = UDim2.new(0, 150, 0, 200)
-    dropdown.Position = UDim2.new(0.5, -75, 0.5, -100)
+    dropdown.Position = UDim2.new(0, 0, 1, 5)
     dropdown.BackgroundColor3 = Color3.fromRGB(94, 62, 35)
     dropdown.ZIndex = 100
     Instance.new("UICorner", dropdown).CornerRadius = UDim.new(0, 8)
     
     local dropdownHeader = Instance.new("Frame", dropdown)
-    dropdownHeader.Size = UDim2.new(1, 0, 0, 25)
+    dropdownHeader.Size = UDim2.new(1, 0, 0, 30)
     dropdownHeader.BackgroundColor3 = Color3.fromRGB(85, 255, 105)
     Instance.new("UICorner", dropdownHeader).CornerRadius = UDim.new(0, 8)
     
     local dropdownTitle = Instance.new("TextLabel", dropdownHeader)
-    dropdownTitle.Size = UDim2.new(1, -10, 1, 0)
-    dropdownTitle.Position = UDim2.new(0, 5, 0, 0)
+    dropdownTitle.Size = UDim2.new(1, -30, 1, 0)
+    dropdownTitle.Position = UDim2.new(0, 10, 0, 0)
     dropdownTitle.Text = "Desired Mutation"
     dropdownTitle.TextColor3 = Color3.fromRGB(255, 255, 255)
     dropdownTitle.Font = Enum.Font.FredokaOne
-    dropdownTitle.TextSize = 12
+    dropdownTitle.TextSize = 16
     dropdownTitle.BackgroundTransparency = 1
     dropdownTitle.TextXAlignment = Enum.TextXAlignment.Left
+    local titleStroke = Instance.new("UIStroke", dropdownTitle)
+    titleStroke.Color = Color3.fromRGB(0, 0, 0)
+    titleStroke.Thickness = 2
     
     local closeDropdown = Instance.new("TextButton", dropdownHeader)
     closeDropdown.Text = "X"
-    closeDropdown.Size = UDim2.new(0, 20, 0, 20)
-    closeDropdown.Position = UDim2.new(1, -22, 0, 2)
+    closeDropdown.Size = UDim2.new(0, 24, 0, 24)
+    closeDropdown.Position = UDim2.new(1, -28, 0, 3)
     closeDropdown.BackgroundColor3 = Color3.fromRGB(255, 60, 60)
     closeDropdown.TextColor3 = Color3.fromRGB(255, 255, 255)
     closeDropdown.Font = Enum.Font.FredokaOne
-    closeDropdown.TextSize = 10
+    closeDropdown.TextSize = 14
     Instance.new("UICorner", closeDropdown)
     closeDropdown.MouseButton1Click:Connect(function() dropdown:Destroy() end)
     
