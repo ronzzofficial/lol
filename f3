@@ -81,8 +81,8 @@ infoBtn.MouseButton1Click:Connect(function()
 
     local modal = Instance.new("Frame", gui)
     modal.Name = "InfoModal"
-    modal.Size = UDim2.new(0, 280, 0, 200)
-    modal.Position = UDim2.new(0.5, -140, 0.5, -100)
+    modal.Size = UDim2.new(0, 280, 0, 170)
+    modal.Position = UDim2.new(0.5, -140, 0.5, -85)
     modal.BackgroundColor3 = Color3.fromRGB(94, 62, 35)
     Instance.new("UICorner", modal).CornerRadius = UDim.new(0, 8)
 
