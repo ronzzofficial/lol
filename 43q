@@ -14,8 +14,8 @@ gui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
 -- Main Frame
 local main = Instance.new("Frame", gui)
-main.Size = UDim2.new(0, 280, 0, 130)
-main.Position = UDim2.new(0.5, -140, 0.5, -65)
+main.Size = UDim2.new(0, 280, 0, 200)
+main.Position = UDim2.new(0.5, -140, 0.5, -100)
 main.BackgroundColor3 = Color3.fromRGB(94, 62, 35)
 main.Active = true
 main.Draggable = true
@@ -374,7 +374,7 @@ local creditLabel = Instance.new("TextLabel", page)
 creditLabel.Size = UDim2.new(1, -20, 0, 16)
 creditLabel.Position = UDim2.new(0, 10, 0, 105)
 creditLabel.Text = "discord.gg/pGbFQz3jcz"
-creditLabel.TextColor3 = Color3.fromRGB(0, 0, 0)
+creditLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
 creditLabel.Font = Enum.Font.FredokaOne
 creditLabel.TextSize = 10
 creditLabel.BackgroundTransparency = 1
