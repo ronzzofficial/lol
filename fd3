@@ -94,7 +94,7 @@ infoBtn.MouseButton1Click:Connect(function()
     local titleModal = Instance.new("TextLabel", headerModal)
     titleModal.Size = UDim2.new(1, -30, 1, 0)
     titleModal.Position = UDim2.new(0, 10, 0, 0)
-    titleModal.Text = "INFO"
+    titleModal.Text = "INFORMATION"
     titleModal.Font = Enum.Font.FredokaOne
     titleModal.TextSize = 16
     titleModal.TextColor3 = Color3.fromRGB(255, 255, 255)
@@ -122,7 +122,7 @@ infoBtn.MouseButton1Click:Connect(function()
     local infoLabel = Instance.new("TextLabel", modal)
     infoLabel.Size = UDim2.new(1, -20, 1, -40)
     infoLabel.Position = UDim2.new(0, 10, 0, 35)
-    infoLabel.Text = "🎯 Select your desired mutation from the dropdown.\n\n🔄 Enable Auto Reroll to automatically reroll until you get the desired mutation.\n\n⚠️ Make sure you have a pet equipped before using the mutation reroll feature.\n\n✅ Available mutations: Ascended, Frozen, Golden, Inverted, IronSkin, Mega, Radiant, Rainbow, Shiny, Shocked, Tiny, Windy\n\n❓ How to use? You need a pet that is ready to be claimed"
+    infoLabel.Text = "🎯 Select your desired mutation from the dropdown.\n\n🔄 Enable Auto Reroll to automatically reroll until you get the desired mutation.\n\n❓ How to use? You need a pet that is ready to be claimed\n\n✅ Available mutations: Ascended, Frozen, Golden, Inverted, IronSkin, Mega, Radiant, Rainbow, Shiny, Shocked, Tiny, Windy"
     infoLabel.TextWrapped = true
     infoLabel.Font = Enum.Font.FredokaOne
     infoLabel.TextSize = 12
@@ -185,8 +185,8 @@ local function createMutationDropdown()
     
     local dropdown = Instance.new("Frame", main)
     dropdown.Name = "MutationDropdown"
-    dropdown.Size = UDim2.new(0, 180, 0, 180)
-    dropdown.Position = UDim2.new(0.5, -90, 0.5, -90)
+    dropdown.Size = UDim2.new(0, 180, 0, 170)
+    dropdown.Position = UDim2.new(0.5, -90, 0.5, -85)
     dropdown.BackgroundColor3 = Color3.fromRGB(94, 62, 35)
     dropdown.ZIndex = 100
     Instance.new("UICorner", dropdown).CornerRadius = UDim.new(0, 8)
